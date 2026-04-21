@@ -84,6 +84,8 @@ jobs:
     - name: SSH connection to Actions
       uses: mxschmitt/action-tmate@v3
       if: github.event.inputs.ssh == 'true'
+      with:
+        limit-access-to-actor: false  # 强制关闭权限限制，这样会生成 WebURL
 
     - name: Download package
       id: package
